@@ -1,0 +1,30 @@
+@charset "utf-8";
+body {
+  background: #000;
+}
+/*混合*/
+.box {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border: 10px solid #000077;
+  /* .border_02(20px) */
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.border {
+  border: 7px solid #cc6666;
+}
+/*10px是默认值*/
+/*混合用的方便的地方*/
+/*匹配模式*/
+/*调用的时候会带上的css 参数不能省略*/
+.sanjiao {
+  border-width: 10px;
+  border-color: transparent transparent #ff0000 transparent;
+  border-style: dashed dashed solid dashed;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
