@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>块作用域</title>
+    <script>
+        //1.for
+//        for(var i=0;i<10;++i){
+//            console.log('第'+(i+1)+'次:'+i);
+//        }
+//        console.log('最终：'+i);
+        //污染的i 最终是10 循环到最后一次的时候又＋1了
+
+//        2.if bar在外面也能获取到
+//        var foo=true;
+//        if(foo){
+//            var bar=foo*2;
+//            console.log(bar);
+//        }
+//        console.log(bar);
+
+        //3.try/catch err只在catch内部可获取
+//        try{
+//            undefined();//执行一个非法操作来强制制造一个异常
+//        }catch(err){
+//            console.log(err);
+//        }
+//        console.log(err);
+
+        //4.let bar在外部不能获取到
+        //ES6的新关键字
+//        var foo=true;
+//        if(foo){
+//            {
+//                let bar=foo*2;
+//                console.log(bar);
+//            }
+//        }
+//        console.log(bar);
+
+//        5.垃圾回收
+//        window.onload=function(){
+//            function foo(data){
+//                console.log(Object.keys(data));
+//            }
+//            {
+//                let bar={a:2,b:3,c:4};
+//                foo(bar);
+//            }
+//            var btn=document.getElementById('btn');
+//            btn.addEventListener('click',function(ev){
+//                var oEvt=ev||event;
+//                console.log('clicked');
+//            });
+//            console.log(bar); //取不到 {}let把在数据结构中占用的空间销毁了
+//
+//        }
+
+        //let 循环
+//        for(let i=0;i<10;i++){
+//            console.log(i);
+//        }
+//        console.log(i); //ReferenceError
+
+//        {
+//            let j;
+//            for(j=0;j<10;j++){
+//                let i=j; //每次迭代重新绑定 确保使用上一个循环迭代结束时的值重新赋值
+//                console.log(i);
+//            }
+////            console.log(i);
+//        }
+
+        //const 是固定 之后试图修改的操作都会引起错误
+        //ES6的新关键字
+        var foo=true;
+        if(foo){
+            var a=2;
+            const b=3;
+            a=3;
+//            b=4; 非法的 不可修改
+            console.log(b);// 可获取
+        }
+        console.log(a);
+        console.log(b);//不可获取
+
+
+    </script>
+</head>
+<body>
+<input type="button" id="btn" value="click"/>
+</body>
+</html>
