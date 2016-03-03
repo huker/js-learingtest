@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div">
+    <input type="button" value="click"/>
+    <input type="button" value="click"/>
+    <input type="button" value="click"/>
+    <input type="button" value="click"/>
+</div>
+
+<script>
+    /*var oDiv=document.getElementById('div');
+    var aBtn=oDiv.children;
+    console.log(aBtn.length);
+    for(var i=0;i<aBtn.length;i++){
+          aBtn[i].index=i;
+        alert(aBtn[i].index);
+          aBtn[i].onclick=function(){
+                console.log(this.index);
+            };
+        (function(i){
+            aBtn[i].onclick=function(){
+                console.log(i);
+            };
+       })(i);
+
+    }
+    function foo(a){
+        function baz(){
+            console.log(a);
+        }
+        baz();
+    }
+    foo(2);
+    function foo(a){
+        function bar(){
+            console.log(a);
+        }
+        bar();
+
+    }
+    function pro(fn){
+        fn();
+    }
+    foo(5);*/
+    <!-- 模块-->
+    var foo=(function(con){
+//        修改公共API
+        function change(){
+            public.foo1=foo2;
+        }
+        function foo1(){
+            console.log(con);
+        }
+        function foo2(){
+            console.log('abc'+con)
+        }
+        var public={
+            foo1:foo1,
+            change:change //一个修改的接口
+        };
+        return public;
+    })("hello");
+    foo.foo1();
+    foo.change();
+    foo.foo1();
+
+</script>
+</body>
+</html>
