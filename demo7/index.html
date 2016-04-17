@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>this关键词</title>
+    <script>
+//      通过上下文
+//        function foo1(con){
+//            return con.name.toUpperCase();
+//        }
+//        function foo2(con){
+//            var greeting="name:"+foo1(con);
+//            console.log(greeting);
+//        }
+//        var me={
+//            name:"kitty"
+//        };
+//        var you={
+//            name:"Herry"
+//        };
+//        var a=foo1(you);
+//        console.log(a);
+//        foo2(me)
+
+//       通过this
+//        function foo1(){
+//            return this.name.toUpperCase();
+//        }
+//        function foo2(){
+//            var g="name:"+foo1.call(this);
+//            console.log(g);
+//        }
+//        var a=foo1.call(you);
+//        console.log(a);
+//        foo2.call(me)
+//        function foo(num){
+//            console.log('foo:'+num);
+//            this.count++;
+//        }
+//        foo.count=0;
+//        for(var i=0;i<10;i++){
+//            if(i<6){
+//                foo(i);
+//            }
+//        }
+//        console.log(foo.count);
+//        console.log(window.count);//NaN
+//        function foo(){
+//            console.log(this.a);
+//        }
+//        var bar={
+//            foo:foo,
+//            a:2
+//        };
+//        var baz=bar.foo;
+//        var a=3;
+//        baz();
+//        bar.foo();
+        //bind 硬绑定
+//        function foo(something){
+//            console.log(this.a,something);
+//        }
+//        var obj={
+//            a:2
+//        };
+//        var bar=foo.bind(obj);
+//        bar(3);
+//        new机制 构造调用
+//        function foo(a){
+//            this.a=a;
+//        }
+//        var bar=new foo(2);
+//        console.log(bar.a);
+//        console.log(typeof foo);
+//        console.log(typeof bar);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
