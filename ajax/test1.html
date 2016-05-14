@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    $(function () {
+        var jsonStr = [{
+            'name': 'jim',
+            'age': 20
+        }, {
+            'name': 'king',
+            'age': 26
+        }, {
+            'name': 'jge',
+            'age': 30
+        }];
+        var url = "./AjaxDemo/toGetJsonData_reponse.jsp";
+        $.ajax({
+            type: "post",
+            url: url,
+            dataType: 'json',
+            data: {
+                'mydata': JSON.stringify(jsonStr)//注意一定要使用JSON.stringify (在IE6，IE7中不支持)
+            },
+            success: function (data, textStatus) {
+                alert(data.name);
+            },
+            error: function (xhr, status, errMsg) {
+                alert("操作失败!");
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            display: block;
+        }
+        span{
+            background: #000000;
+            display: block;
+            color: #ffffff;
+        }
+        .two{
+            width: 30px;
+            height: 30px;
+            background: red;
+        }
+    </style>
+    <script src="jquery-1.7.2.js"></script>
+    <script>
+        $(function(){
+            $("div :nth-child(1)").css('background','#ccc')
+        });
+
+    </script>
+</head>
+<body>
+    <div>
+        <div class="two">778</div>
+    </div>
+    <div class="one" id="two">
+        <div class="two"></div>
+        <span>456</span>
+    </div>
+    <div>
+        <div class="two">778</div>
+    </div>
+    <div>
+        <div class="two">778</div>
+    </div>
+</body>
+
+</html>
