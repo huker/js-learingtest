@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+            color: #ffffff;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="test">
+
+</div>
+<script src="jquery-1.7.2.js"></script>
+<script>
+    $(function(){
+        $('test').bind('mouseover', function (event) {
+            console.log(event.pageX)
+        })
+    })
+</script>
+</body>
+</html>

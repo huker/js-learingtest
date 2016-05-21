@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div id="test">
+还好
+</div>
+<button id="btn">变色</button>
+<script src="jquery-1.7.2.js"></script>
+<script>
+    $(function(){
+        $('#btn').bind('click',myfunc1 = function(){
+            var contain = $('#test').html();
+            $('#test').html(contain+'hello');
+        }).bind('click',myFunc2 = function(){
+            $('#test').css('background','#000');
+        });
+        $('#btn').unbind('click',myfunc1);
+//
+////        模拟触发click事件
+//        setTimeout(function(){
+//            //传值的时候是数组传
+//            $('#btn').trigger('click')
+//        },1000)
+
+    })
+</script>
+</body>
+</html>

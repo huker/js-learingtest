@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="test">
+
+</div>
+<button id="btn">变色</button>
+<script src="jquery-1.7.2.js"></script>
+<script>
+    $(function(){
+//        事件绑定
+//        $('#btn').click(function(){
+//            $('#test').css('width','200px');
+//        });
+        $('#btn').bind('myclick',myFun = function(event,msg1,msg2){
+            console.log(arguments);
+            var contain = $('#test').html();
+            $('#test').html(contain+msg1+msg2);
+        });
+
+//        模拟触发click事件
+        setTimeout(function(){
+            //传值的时候是数组传
+            $('#btn').trigger('myclick',['hello','world'])
+        },1000)
+
+    })
+</script>
+</body>
+</html>
