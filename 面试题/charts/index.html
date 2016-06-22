@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>index</title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <style>
+        .tablechart{
+            margin-top: 30px;
+        }
+        .tablechart>th,td{
+            text-align: center;
+        }
+        .piehead{
+            font-weight: bolder;
+            font-size: 20px;
+            color: #84DA45;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 piehead">
+            piechart图表1
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4 piehead">
+            piechart图表2
+        </div>
+    </div>
+    <div class="row chartcontent">
+        <div class="col-md-4">
+            <div id="piechartOne" style="height:240px">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <table class="table table-bordered tablechart">
+                <tr>
+                    <th colspan="3">看不清的标题1</th>
+                </tr>
+                <tr>
+                    <td>54.3%</td>
+                    <td>哈哈哈哈哈</td>
+                    <td>x.xx%</td>
+                </tr>
+                <tr><th colspan="3">看不清的标题1</th></tr>
+                <tr>
+                    <td>54.3%</td>
+                    <td>哈哈哈哈哈</td>
+                    <td>x.xx%</td>
+                </tr>
+                <tr>
+                    <td>54.3%</td>
+                    <td>哈哈哈哈哈</td>
+                    <td>x.xx%</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <div id="piechartTwo" style="height:240px">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 piehead">资产配置情况</div>
+        <div class="col-md-12">
+            <div id="areachart" style="height: 300px"></div>
+        </div>
+    </div>
+</div>
+
+<script src="js/echarts.simple.min.js"></script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts图表
+    var myChartOne = echarts.init(document.getElementById('piechartOne'));
+    var myChartTwo = echarts.init(document.getElementById('piechartTwo'));
+    var areaChart = echarts.init(document.getElementById('areachart'));
+    var optionOne = {
+        title : {
+            text: '某站点用户访问来源',
+            subtext: '纯属虚构',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+        },
+        series : [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data:[
+                    {value:335, name:'直接访问'},
+                    {value:310, name:'邮件营销'},
+                    {value:234, name:'联盟广告'},
+                    {value:135, name:'视频广告'},
+                    {value:1548, name:'搜索引擎'}
+                ],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+
+    var optionArea = {
+        title: {
+            text: '堆叠区域图'
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : ['周一','周二','周三','周四','周五','周六','周日']
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value'
+            }
+        ],
+        series : [
+            {
+                name:'邮件营销',
+                type:'line',
+                stack: '总量',
+                areaStyle: {normal: {}},
+                data:[120, 132, 101, 134, 90, 230, 210]
+            },
+            {
+                name:'联盟广告',
+                type:'line',
+                stack: '总量',
+                areaStyle: {normal: {}},
+                data:[220, 182, 191, 234, 290, 330, 310]
+            },
+            {
+                name:'视频广告',
+                type:'line',
+                stack: '总量',
+                areaStyle: {normal: {}},
+                data:[150, 232, 201, 154, 190, 330, 410]
+            },
+            {
+                name:'直接访问',
+                type:'line',
+                stack: '总量',
+                areaStyle: {normal: {}},
+                data:[320, 332, 301, 334, 390, 330, 320]
+            },
+            {
+                name:'搜索引擎',
+                type:'line',
+                stack: '总量',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top'
+                    }
+                },
+                areaStyle: {normal: {}},
+                data:[820, 932, 901, 934, 1290, 1330, 1320]
+            }
+        ]
+    };
+    // 为echarts对象加载数据
+    myChartOne.setOption(optionOne);
+    myChartTwo.setOption(optionOne);
+    areaChart.setOption(optionArea);
+
+</script>
+</body>

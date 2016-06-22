@@ -1,0 +1,31 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+.container{
+    width: 100%;
+    text-align: center;
+}
+.page{
+    width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.tablechart{
+    float: left;
+}
+.pieright{
+    float: right;
+}
+.clearfix{
+    zoom: 1;
+}
+.clearfix:after{
+    display: block;
+    clear: both;
+    overflow: hidden;
+    content: '';
+}
